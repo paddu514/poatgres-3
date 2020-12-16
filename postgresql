@@ -1,0 +1,8 @@
+SELECT eno,
+       empname,
+       job,
+       salary,
+       LEAD(salary, 1, 0) OVER (ORDER BY salary) AS salary_next,
+       LEAD(salary, 1, 0) OVER (ORDER BY salary) - salary AS salary_diff
+FROM   employee;
+ 
